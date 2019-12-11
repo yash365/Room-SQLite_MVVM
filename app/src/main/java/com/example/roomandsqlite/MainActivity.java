@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onChanged(List<Note> notes) {
                 // update recyclerview
-                adapter.setNotes(notes);
+                adapter.submitList(notes);
                 //Toast.makeText(MainActivity.this, "onchanged", Toast.LENGTH_SHORT).show();
             }
         });
@@ -85,7 +85,6 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra(AddEditNoteActivity.EXTRA_DESCRIPTION, note.getDescription());
                 intent.putExtra(AddEditNoteActivity.EXTRA_PRIORITY, note.getPriority());
                 startActivityForResult(intent, EDIT_NOTE_REQUEST);
-
             }
         });
     }
